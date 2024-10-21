@@ -102,7 +102,7 @@ void loop() {
   int solarvalue = analogRead(A6);
   int batvalue = analogRead(A7);
   //Calculating Percent Of Battery
-    
+  float voltage = batvalue * (10 / 1024.0);
 
   //Serial.println("solarvalue:");
   //Serial.println(solarvalue);
@@ -188,7 +188,6 @@ void loop() {
       servov = servovLimitLow;
     } else
       servoverti.write(servov - 1);
-
 
   } else if (avgtop - avgbot > TOLERANCE) {
     if (servov >= servovLimitHigh) {
